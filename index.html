@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signinsystem</title>
+    <title>會議簽到系統</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,9 +19,71 @@
         h1 {
             font-size: 2rem;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .login-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .login-container input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+        }
+        .login-container button {
+            margin-top: 10px;
+            background-color: #28a745;
+        }
+        .login-container button:hover {
+            background-color: #218838;
+        }
     </style>
+    <script>
+        function showLogin() {
+            document.querySelector('.login-container').style.display = 'flex';
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === '10490' && password === '10490') {
+                alert('登入成功！');
+                // 在這裡可以跳轉到管理員介面，例如：
+                // window.location.href = 'admin.html';
+            } else {
+                alert('帳號或密碼錯誤！');
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>wellcom</h1>
+    <h1>歡迎參加會議</h1>
+    <button onclick="showLogin()">進入管理員介面</button>
+
+    <div class="login-container">
+        <h2>管理員登入</h2>
+        <input type="text" id="username" placeholder="帳號">
+        <input type="password" id="password" placeholder="密碼">
+        <button onclick="login()">登入</button>
+    </div>
 </body>
 </html>
